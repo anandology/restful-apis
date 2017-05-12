@@ -1,0 +1,70 @@
+# Blog API - v0
+
+This API is designed to show how not to design a REST API.
+
+# End Points
+
+## List Posts
+
+	GET /lists-posts
+	---
+	200 OK
+	{
+		"posts": [{
+			"id": 1,
+			"title": "Hello World",
+			"body": "My first blog post"
+		}]
+	}
+
+## Create Post
+
+	POST /create-post
+
+	{
+		"post": {
+			"title": "Hello World",
+			"body": "My first blog post"
+		}
+	}
+	---
+	200 OK
+
+	{"status": "created", "id": 1}
+
+## Show Post
+
+	GET /show-post?id=1
+
+	{
+		"post": {
+			"title": "Hello World",
+			"body": "My first blog post"
+		}
+	}
+
+---
+
+## Update Post
+
+	POST /update-post?id=1
+
+	{
+		"post": {
+			"title": "Hello World",
+			"body": "My first blog post"
+		}
+	}
+	---
+	200 OK
+
+	{"status": "updated"}
+
+
+## Delete Post
+
+	GET /delete-post?id=1
+	---
+	200 OK
+
+	{"status": "deleted"}

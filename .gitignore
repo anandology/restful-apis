@@ -1,3 +1,4 @@
 *.pyc
+*.db
 __pycache/
 .DS_Store
