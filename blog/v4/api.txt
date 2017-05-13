@@ -1,0 +1,151 @@
+# Blog API - v4
+
+Simple RESTful API for managing blog posts.
+
+Includes posts, tags, comments and authors.
+
+Every post will have exactly is one author. For simplicity it is assumed that it can't be changed later.
+
+# Topics
+
+The blog API v4 deals with the following resources.
+
+* post
+* tags
+* comments
+* authors
+
+# API - Posts 
+
+## List Posts
+
+	GET /posts
+	---
+	200 OK
+	Content-Type: application/json
+
+	[{
+		"id": 1,
+		"author": {
+			"id": 4
+			"name": "Anand"
+		},
+		"title": "Hello World",
+		"body": "My first blog post",
+		"tags": ["hello"],
+		"comments": []
+	}]
+
+## Get Post
+
+	GET /posts/1
+	---
+	200 OK
+	Content-Type: application/json
+
+	{
+		"id": 1,
+		"title": "Hello World",
+		"body": "My first blog post",
+		"tags": ["hello"],
+		"comments": [],
+		"author": {
+			"id": 4
+			"name": "Anand"
+		}
+	}
+
+## Update Post
+
+	PUT /posts/1
+	{
+		"id": 1,
+		"title": "Hello World",
+		"body": "My first blog post with some edits",
+		"tags": ["hello"]		
+	}
+
+	---
+	200 OK
+	Content-Type: application/json
+
+	{
+		"id": 1,
+		"title": "Hello World",
+		"body": "My first blog post with some edits",
+		"tags": ["hello"],
+		"author": {
+			"id": 4
+			"name": "Anand"
+		}
+	}
+
+## Delete Post
+
+	DELETE /posts/1
+	---
+	200 OK
+	Content-Type: application/json
+
+	{}
+
+## Create a Post
+
+Since an author is always required to create a post, it would be easier, if can constuct 
+
+# API - Authors
+
+## List authors 
+
+	GET /authors
+	---
+	200 OK
+	[{
+		"id": 1,
+		"name": "Anand"
+	}]
+
+## Create an author
+
+	POST /authors
+
+## Get an author
+
+	GET /authors/1
+
+## Update an author
+
+	PUT /authors/1
+
+## Delete an author
+
+	DELETE /authors/1
+
+## List Posts of an author
+
+	GET /authors/1/posts
+
+## Create a new post
+
+	POST /authors/1/posts
+
+	{
+		"title": "Building RESTful APIs",
+		"body": "The workshop is today."
+	}
+	---
+	200 OK
+
+	{
+		"id": 3,
+		"title": "Building RESTful APIs",
+		"body": "The workshop is today",
+		"author": {
+			"id": 1,
+			"name": "Anand"
+		}
+	}
+
+# API - Tags (see v2)
+# API - Comments (See v3)
+

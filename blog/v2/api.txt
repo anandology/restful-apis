@@ -1,0 +1,127 @@
+# Blog API - v2
+
+Simple RESTful API for managing blog posts.
+
+Includes posts and tags.
+
+# Topics
+
+The blog API v3 deals with the following resources.
+
+* post
+* tags
+
+# API - Posts 
+
+## List Posts
+
+	GET /posts
+	---
+	200 OK
+	Content-Type: application/json
+
+	[{
+		"id": 1,
+		"title": "Hello World",
+		"body": "My first blog post",
+		"tags": ["hello"]
+	}]
+
+## Create Post
+
+	POST /posts
+
+	{
+		"title": "Hello World",
+		"body": "My first blog post",
+		"tags": ["hello"]
+	}
+	---
+	200 OK
+	Content-Type: application/json
+
+	{
+		"id": 1,
+		"title": "Hello World",
+		"body": "My first blog post",
+		"tags": ["hello"]		
+	}
+
+## Get Post
+
+	GET /posts/1
+	---
+	200 OK
+	Content-Type: application/json
+
+	{
+		"id": 1,
+		"title": "Hello World",
+		"body": "My first blog post",
+		"tags": ["hello"]		
+	}
+
+## Update Post
+
+	PUT /posts/1
+	{
+		"id": 1,
+		"title": "Hello World",
+		"body": "My first blog post with some edits",
+		"tags": ["hello"]		
+	}
+
+	---
+	200 OK
+	Content-Type: application/json
+
+	{
+		"id": 1,
+		"title": "Hello World",
+		"body": "My first blog post with some edits",
+		"tags": ["hello"]		
+	}
+
+## Delete Post
+
+	DELETE /posts/1
+	---
+	200 OK
+	Content-Type: application/json
+
+	{}
+
+# API - Tags
+
+## Lists Tags
+
+	GET /tags
+	---
+	200 OK
+
+	[{
+		"name": "hello",
+		"posts": [
+			1
+		]
+	}]
+
+## Get a tag
+
+	GET /tags/hello
+	---
+	200 OK
+
+	{
+		"name": "hello",
+		"posts": [
+			1
+		]
+	}
+
+# Questions?
+
+* How to get a tag and all its posts for rendering a tag page?
+* How to find all the posts that are tagged with both tag A and tag B?
+* How to add a new tag to an existing post? 
+* How to delete a tag from an existing post?

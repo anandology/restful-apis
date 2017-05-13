@@ -1,0 +1,186 @@
+# Blog API - v3
+
+Simple RESTful API for managing blog posts.
+
+Includes posts, tags and comments.
+
+# Topics
+
+The blog API v3 deals with the following resources.
+
+* post
+* tags
+* comments
+
+# API - Posts 
+
+## List Posts
+
+	GET /posts
+	---
+	200 OK
+	Content-Type: application/json
+
+	[{
+		"id": 1,
+		"title": "Hello World",
+		"body": "My first blog post",
+		"tags": ["hello"],
+		"comments": [{
+			"id": 12,		
+			"author": "bahubali",
+			"comment": "mahishmathi",
+			"timestamp": "2017-05-12 10:15:00"
+		}]
+	}]
+
+## Create Post
+
+	POST /posts
+
+	{
+		"title": "Hello World",
+		"body": "My first blog post",
+		"tags": ["hello"]
+	}
+	---
+	200 OK
+	Content-Type: application/json
+
+	{
+		"id": 1,
+		"title": "Hello World",
+		"body": "My first blog post",
+		"tags": ["hello"],
+		"comments": []		
+	}
+
+## Get Post
+
+	GET /posts/1
+	---
+	200 OK
+	Content-Type: application/json
+
+	{
+		"id": 1,
+		"title": "Hello World",
+		"body": "My first blog post",
+		"tags": ["hello"],
+		"comments": [{
+			"id": "12"
+			"author": "bahubali",
+			"comment": "mahishmathi",
+			"timestamp": "2017-05-12 10:15:00"
+		}]				
+	}
+
+## Update Post
+
+	PUT /posts/1
+	{
+		"id": 1,
+		"title": "Hello World",
+		"body": "My first blog post with some edits",
+		"tags": ["hello"]		
+	}
+
+	---
+	200 OK
+	Content-Type: application/json
+
+	{
+		"id": 1,
+		"title": "Hello World",
+		"body": "My first blog post with some edits",
+		"tags": ["hello"],
+		"comments": [{
+			"id": 12,		
+			"author": "bahubali",
+			"comment": "mahishmathi",
+			"timestamp": "2017-05-12 10:15:00"
+		}]		
+	}
+
+## Delete Post
+
+	DELETE /posts/1
+	---
+	200 OK
+	Content-Type: application/json
+
+	{}
+
+# API - Comments
+
+## Get Comments of a post
+
+	GET /posts/1/comments
+	---
+	200 OK
+	[{
+		"id": 12,
+		"author": "bahubali",
+		"comment": "mahishmathi",
+		"timestamp": "2017-05-12 10:15:00"
+	}]
+
+## Add a new comment
+
+	POST /posts/1/comments
+	{
+		"author": "bahubali",
+		"comment": "mahishmathi",
+	}	
+	---
+	200 OK
+	{
+		"id": 12,
+		"author": "bahubali",
+		"comment": "mahishmathi",
+		"timestamp": "2017-05-12 10:15:00"
+	}
+
+## Get a comment
+
+	GET /posts/1/comments/12
+	---
+	200 OK
+	{
+		"id": 12,
+		"author": "bahubali",
+		"comment": "mahishmathi",
+		"timestamp": "2017-05-12 10:15:00"
+	}
+
+## Update a comment
+
+	PUT /posts/1/comments/12
+	{
+		"id": 12,
+		"author": "bahubali2",
+		"comment": "do you know why kattappa killed bahubali?",
+		"timestamp": "2017-05-12 10:15:00"
+	}
+	---
+	200 OK
+	{
+		"id": 12,
+		"author": "bahubali2",
+		"comment": "do you know why kattappa killed bahubali?",
+		"timestamp": "2017-05-12 10:15:00"
+	}
+
+## Delete a comment
+
+	DELETE /posts/1/comments/12
+	---
+	200 OK
+	{}
+
+# API - Tags (see v2)
+
+# Questions?
+
+* How to find the post id from a comment?
+* Is it a good idea to include comments in the representation of a post? How does it make sense when comment is a different resource type?
