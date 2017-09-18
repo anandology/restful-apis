@@ -122,6 +122,33 @@ The blog API v3 deals with the following resources.
 # Questions?
 
 * How to get a tag and all its posts for rendering a tag page?
+
+	/tag/tagname/posts
+	/tag/tagname (always include posts in the tag representation)
+	/tag/tagname?expand=true
+
 * How to find all the posts that are tagged with both tag A and tag B?
-* How to add a new tag to an existing post? 
+
+	/posts?tag=A&tag=B
+
+* How to add a new tag to an existing post?
+
+	PATCH /posts/1
+
+	{
+		"add": {
+			"tag": "new-tag"
+		},
+		"delete": {
+			"tag": "old-tag"
+		}
+	}
+	See JSONPatch for more ideas.
+
+How about exposing the tag as a subresource?
+
+	PUT /posts/1/tags/new-tag
+
 * How to delete a tag from an existing post?
+
+	DELETE /posts/1/tags/old-tag

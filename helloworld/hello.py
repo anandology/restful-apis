@@ -1,8 +1,9 @@
 import web
+import base64
 
 urls = (
     "/", "index",
-    "/hello", "hello"
+    "/hello", "hello",
 )
 
 app = web.application(urls, globals())
