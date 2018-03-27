@@ -1,6 +1,6 @@
 slidenumbers: true
 
-# Building RESTful APIs
+# Designing<br>**RESTful APIs**
 
 ---
 
@@ -8,15 +8,15 @@ slidenumbers: true
 
 ---
 
-# Topics
+# Outline
 
-* Introducton to HTTP
-* Understanding REST
-* Introduction to APIs
-* Designing APIs
-* Implementation
-* Authentication and Secutity 
-* Documenting APIs
+* Introduction to HTTP
+* Representational State Transfer (REST)
+* Examples of RESTful APIs
+* Designing an API
+* Authentication and Secutity
+* Excercises
+* Best Practices
 
 ---
 
@@ -344,7 +344,7 @@ http://dev.bitly.com/links.html
 
 # Exercise - 2
 
-Look at Twitter REST API and tell me what you don't like about it.
+Look at Twitter REST API and see how can it be made better.
 
 <https://dev.twitter.com/rest/reference>
 
@@ -365,7 +365,6 @@ Look at Twitter REST API and tell me what you don't like about it.
 * Versioning APIs
 * Pagination
 
-
 ---
 
 # References
@@ -377,7 +376,3 @@ Look at Twitter REST API and tell me what you don't like about it.
 
 [1]: https://www.w3.org/Provider/Style/URI.html
 [2]: http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#restful
----
-# Feedback
-
-<https://pipalacademy.typeform.com/to/XGZajm>
