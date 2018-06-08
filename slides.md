@@ -72,7 +72,6 @@ Document with references to other documents, which can be accessed immediately.
 	<a href="https://en.wikipedia.org/wiki/Ted_Nelson">Ted Nelson</a> 
 	in 1963.
 
-
 Very simple idea. Nothing comes closer even after half a century.
 
 Think: how do you manage related word documents? 
@@ -122,6 +121,35 @@ Simple text-based protocol.
 # Demo
 
 Demo using `curl` and `netcat`.
+
+---
+
+# Send Email using `netcat`
+
+```
+   $ nc -c mail.mailinator.com 25
+S: 220 mail.mailinator.com ESMTP Postfix "Seqrite Terminator
+C: HELO mail.mailinator.com**
+S: 250 mail.mailinator.com
+C: MAIL FROM:<netcat@anandology.com>
+S: 250 Ok
+C: RCPT TO:<restful-apis@mailinator.com>
+S: 250 Ok
+C: DATA
+S: 354 Enter mail, end with "." on a line by itself
+C: From: "Netcat" <netcat@anandology.com>
+   To: RESTful APIs Workshop <restful-apis@mailinator.com>
+   Subject: HORN - 200 OK - PLEASE
+
+   Hello Everyone,
+   Enjoy your workshop!
+   With Love,
+   Netcat
+   .
+S: 250 Ok
+C: QUIT
+S: 221 Bye
+```
 
 ---
 
@@ -308,8 +336,8 @@ Single URL for all API calls.
 Github
 <https://developers.github.com/>
 
-Stripe
-<https://stripe.com/docs/api>
+Digital Ocean
+<https://developers.digitalocean.com/documentation/v2>
 
 ---
 
@@ -369,10 +397,19 @@ Look at Twitter REST API and see how can it be made better.
 
 # References
 
----
-
 * [Cool URIs don't change][1]
 * [Best Practices for Designing a Pragmatic RESTful API - Vinay Sahni][2]
+* [Zalando RESTful API and Event Scheme Guidelines][3]
 
 [1]: https://www.w3.org/Provider/Style/URI.html
 [2]: http://www.vinaysahni.com/best-practices-for-a-pragmatic-restful-api#restful
+[3]: https://zalando.github.io/restful-api-guidelines/
+
+---
+
+# Thanks
+
+Anand Chitipothu
+@anandology
+anandology@gmail.com
+
